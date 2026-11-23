@@ -1,0 +1,272 @@
+/* Styles for the "Tasks with notes" design. Tokens live in app/globals.css. */
+
+.page {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 56px 24px;
+}
+
+.main {
+  width: 100%;
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  letter-spacing: -0.02em;
+}
+
+.summary {
+  margin: 0;
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+/* Filter segmented control */
+.filter {
+  display: flex;
+  gap: 4px;
+  background: var(--color-segment);
+  padding: 4px;
+  border-radius: var(--radius-lg);
+}
+
+.filterButton {
+  min-height: 36px;
+  padding: 0 14px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--color-text-subtle);
+}
+
+.filterButton[aria-pressed="true"] {
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+}
+
+/* New task form */
+.form {
+  display: flex;
+  gap: 8px;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  height: 48px;
+  padding: 0 16px;
+  font: inherit;
+  font-size: 15px;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-input-border);
+  border-radius: var(--radius-lg);
+}
+
+.addButton {
+  height: 48px;
+  padding: 0 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffffff;
+  background: var(--color-accent);
+  border: 0;
+  border-radius: var(--radius-lg);
+}
+
+.addButton:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* Task list */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+}
+
+.card[data-open="true"] {
+  border-color: var(--color-border-strong);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px 4px 4px;
+}
+
+.checkButton {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  background: transparent;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox {
+  width: 22px;
+  height: 22px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface);
+  border: 2px solid var(--color-checkbox-border);
+}
+
+.checkbox[data-checked="true"] {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.expandButton {
+  flex: 1;
+  min-width: 0;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  padding: 0 4px;
+  font: inherit;
+  color: inherit;
+}
+
+.taskTitle {
+  flex: 1;
+  min-width: 0;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--color-text);
+}
+
+.taskTitle[data-done="true"] {
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}
+
+.noteBadge {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.chevron {
+  flex: none;
+  transition: transform 0.15s;
+}
+
+.chevron[data-open="true"] {
+  transform: rotate(180deg);
+}
+
+/* Expanded details */
+.details {
+  padding: 0 16px 16px 52px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.notesLabel {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+}
+
+.textarea {
+  width: 100%;
+  resize: vertical;
+  padding: 10px 12px;
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-text);
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-input-border);
+  border-radius: var(--radius-md);
+}
+
+.detailsFooter {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.deleteButton {
+  min-height: 44px;
+  padding: 0 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-danger);
+  background: transparent;
+  border: 0;
+}
+
+.empty {
+  margin: 0;
+  padding: 32px 0;
+  text-align: center;
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
